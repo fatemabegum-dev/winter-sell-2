@@ -2,21 +2,21 @@ let totalPrice = 0;
 let discountAmount = 0;
 let isCouponApplied = false;
 
-// ১. প্রোডাক্টে ক্লিক করলে কার্টে দাম যোগ করার ফাংশন
+
 function addToCart(element, price) {
   totalPrice += parseFloat(price);
 
   if (isCouponApplied) {
-    discountAmount = totalPrice * 0.20; // ২০% ছাড়
+    discountAmount = totalPrice * 0.20; 
   }
 
   updateDisplay();
 }
 
-// ২. পেজ লোড হলে Apply এবং Make Purchase বাটনে ক্লিক অ্যাকশন যুক্ত করা
+
 document.addEventListener('DOMContentLoaded', () => {
 
-  // কুপন অ্যাপ্লাই বাটন
+  
   const applyBtn = document.querySelector('.btn-apply');
   if (applyBtn) {
     applyBtn.addEventListener('click', function (e) {
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  // মেক পারচেজ বাটন
+ 
   const purchaseBtn = document.querySelector('.btn-purchase');
   if (purchaseBtn) {
     purchaseBtn.addEventListener('click', function (e) {
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (totalPrice > 0) {
         alert("Thank you! Your order has been placed successfully.");
 
-        // কেনাকাটা শেষ হলে কার্ট খালি করা
+       
         totalPrice = 0;
         discountAmount = 0;
         isCouponApplied = false;
@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// ৩. স্ক্রিনে হিসাব আপডেট করার ফাংশন
+
 function updateDisplay() {
   const grandTotal = totalPrice - discountAmount;
 
